@@ -25,8 +25,9 @@ def imread(path):
         img = np.transpose(np.array([img, img, img]), (2, 0, 1))
     return img
     
-cwd = os.getcwd()
-path = cwd + "/101_ObjectCategories"
+# cwd = os.getcwd()
+# path = cwd + "/101_ObjectCategories"
+path = "/Volumes/SanDisk128B/datasets0/Caltech101_ObjectCategories"
 valid_exts = [".jpg", ".gif", ".png", ".jpeg"]
 print ("[%d] CATEGORIES ARE IN \n %s" % (len(os.listdir(path)), path))
 
@@ -37,6 +38,8 @@ labels = []
 # LOAD ALL IMAGES 
 for i, category in enumerate(categories):
     iter = 0
+    if os.path.isfile(path + "/" + category):
+        continue
     for f in os.listdir(path + "/" + category):
         if iter == 0:
             ext = os.path.splitext(f)[1]
