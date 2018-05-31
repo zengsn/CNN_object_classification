@@ -170,14 +170,17 @@ print("Accuracy: %.2f%%" % (scores[1]*100))
 #plt.title('accuracy')
 #plt.savefig("accuracy7.png",dpi=300,format="png")
 model_name = "vgg_caltech_101"
+json_filename  = model_name . ".json"
 model_json = model.to_json()
-with open(model_name . ".json", "w") as json_file:
+with open(json_filename, "w") as json_file:
     json_file.write(model_json)
 # serialize weights to HDF5
-model.save_weights(model_name . ".h5")
-print("Saved h5 model to disk: " . model_name . ".h5")
+h5_filename = model_name . ".h5"
+model.save_weights(h5_filename)
+print("Saved h5 model to disk: " . h5_filename)
 saver = tf.train.Saver()
-model = keras.models.load_model(model_name . ".h5")
+model = keras.models.load_model(h5_filename)
 sess = keras.backend.get_session()
-save_path = saver.save(sess, model_name . ".ckpt")
-print("Saved checkpoints to disk: vgg_caltech_101.ckpt")
+ckpt_filename = model_name . ".ckpt"
+save_path = saver.save(sess, ckpt_filename)
+print("Saved checkpoints to disk: " . ckpt_filename)
