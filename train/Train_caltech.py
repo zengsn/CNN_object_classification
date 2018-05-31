@@ -28,6 +28,7 @@ def imread(path):
 # cwd = os.getcwd()
 # path = cwd + "/101_ObjectCategories"
 path = "/Volumes/SanDisk128B/datasets0/Caltech101_ObjectCategories"
+path = "/home/snzeng/data/101_ObjectCategories/101_ObjectCategories"
 valid_exts = [".jpg", ".gif", ".png", ".jpeg"]
 print ("[%d] CATEGORIES ARE IN \n %s" % (len(os.listdir(path)), path))
 
