@@ -25,10 +25,10 @@ def imread(path):
         img = np.transpose(np.array([img, img, img]), (2, 0, 1))
     return img
     
-# cwd = os.getcwd()
-# path = cwd + "/101_ObjectCategories"
-path = "/Volumes/SanDisk128B/datasets0/Caltech101_ObjectCategories"
-path = "/home/snzeng/data/101_ObjectCategories/101_ObjectCategories"
+cwd = os.getcwd()
+path = cwd + "/data/101_ObjectCategories"
+#path = "/Volumes/SanDisk128B/datasets0/Caltech101_ObjectCategories"
+#path = "/home/snzeng/data/101_ObjectCategories/101_ObjectCategories"
 valid_exts = [".jpg", ".gif", ".png", ".jpeg"]
 print ("[%d] CATEGORIES ARE IN \n %s" % (len(os.listdir(path)), path))
 
@@ -178,9 +178,3 @@ with open(json_filename, "w") as json_file:
 h5_filename = model_name + ".h5"
 model.save_weights(h5_filename)
 print("Saved h5 model to disk: " + h5_filename)
-saver = tf.train.Saver()
-model = keras.models.load_model(h5_filename)
-sess = keras.backend.get_session()
-ckpt_filename = model_name + ".ckpt"
-save_path = saver.save(sess, ckpt_filename)
-print("Saved checkpoints to disk: " + ckpt_filename)
