@@ -16,7 +16,8 @@ import os
 import numpy as np
 import scipy.io
 import scipy.misc
-import matplotlib.pyplot
+import matplotlib.pyplot as plt
+import tensorflow as tf
 
 model = Sequential()
 saver = tf.train.Saver()
