@@ -21,9 +21,10 @@ import tensorflow as tf
 
 model = Sequential()
 saver = tf.train.Saver()
+model_name = "vgg_caltech_101"
+h5_filename = model_name + ".h5"
 model.load_model(h5_filename)
 sess  = K.get_session()
-model_name = "vgg_caltech_101"
 ckpt_filename = model_name + ".ckpt"
 save_path = saver.save(sess, ckpt_filename)
 print("Saved checkpoints to disk: " + ckpt_filename)
